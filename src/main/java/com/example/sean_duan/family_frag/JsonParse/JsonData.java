@@ -71,4 +71,9 @@ public class JsonData {
 
         return bundle ;
     }
+    public static List<User_info> getTieziMsg(String data){
+        List<User_info> mlist = new ArrayList<>();
+
+        return mlist ;
+    }
 }
