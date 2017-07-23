@@ -118,7 +118,7 @@ public class Get_Bottle_Fragment extends Fragment implements OnResponseListener<
     public void onSucceed(int what, Response<String> response) {
         Log.e("succeed","ldlldkdjfhfhfhfhff");
         if(what==1){//what只是一个标记
-            User_info user_info = JsonData.getBottle(response.get().toString());
+            //User_info user_info = JsonData.getBottle(response.get().toString());
             //在下面更新bottle信息
         }
     }

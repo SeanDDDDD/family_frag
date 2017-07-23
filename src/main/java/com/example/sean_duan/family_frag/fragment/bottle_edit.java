@@ -1,4 +1,4 @@
-package com.example.sean_duan.family_frag;
+package com.example.sean_duan.family_frag.fragment;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,8 +10,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -19,14 +19,24 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sean_duan.family_frag.Bean.DataNetHome;
+import com.example.sean_duan.family_frag.activity.MainActivity;
+import com.example.sean_duan.family_frag.R;
+import com.yanzhenjie.nohttp.NoHttp;
+import com.yanzhenjie.nohttp.RequestMethod;
+import com.yanzhenjie.nohttp.rest.OnResponseListener;
+import com.yanzhenjie.nohttp.rest.Request;
+import com.yanzhenjie.nohttp.rest.RequestQueue;
+import com.yanzhenjie.nohttp.rest.Response;
+import com.yanzhenjie.nohttp.rest.StringRequest;
 
-public class bottle_edit extends Fragment {
+
+public class bottle_edit extends Fragment implements OnResponseListener<String>{
     private View view ;
     private View father_view;
     private MainActivity mainActivity ;
@@ -40,6 +50,7 @@ public class bottle_edit extends Fragment {
     private ArrayAdapter adapter_bottletype;
     private StringBuffer bottle_text;
     private LinearLayout bottle_note_layout;
+    private RequestQueue requestQueue ;
     public bottle_edit(View view) {
         // Required empty public constructor
         father_view = view;
@@ -66,7 +77,11 @@ public class bottle_edit extends Fragment {
         initView();
         initListener();
         initAdapter();
+        initType();
         return view;
+    }
+
+    private void initType() {
     }
 
     private void initAdapter() {
@@ -88,6 +103,7 @@ public class bottle_edit extends Fragment {
         editText_bottle = (EditText) view.findViewById(R.id.editText_bottle);
         textView_bottleshow = (TextView) view.findViewById(R.id.textView_bottle_send);
         mainActivity = (MainActivity)getActivity();
+        requestQueue = NoHttp.newRequestQueue();
     }
     private void initListener() {
         editText_bottle.addTextChangedListener(new TextWatcher() {
@@ -108,13 +124,13 @@ public class bottle_edit extends Fragment {
 
             }
         });
-        editText_bottle.setOnClickListener(new View.OnClickListener() {
+        editText_bottle.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                InputMethodManager imm = ( InputMethodManager) view.getContext( ).getSystemService(Context.INPUT_METHOD_SERVICE);
-                if (imm.isActive()) {
-                    imm.hideSoftInputFromWindow( view.getApplicationWindowToken() , 0 );
-                }
+            public boolean onTouch(View v, MotionEvent event) {
+                InputMethodManager inputMethodManager =  (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputMethodManager.showSoftInput(editText_bottle, 0);
+
+                return false;
             }
         });
         button_bottleback.setOnClickListener(new View.OnClickListener() {
@@ -134,6 +150,8 @@ public class bottle_edit extends Fragment {
                     else
                         Toast.makeText(mainActivity, "请先输入内容呦 (*^_^*)", Toast.LENGTH_SHORT).show();
                 } else {
+                    InputMethodManager inputManager = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);//输入法消失
+                    inputManager.hideSoftInputFromWindow(editText_bottle.getWindowToken(),0);
                     bottle_text.append(editText_bottle.getText());
                     textView_bottleshow.setText(bottle_text.toString());
                     editText_bottle.setText("");
@@ -184,7 +202,9 @@ public class bottle_edit extends Fragment {
 
     private void sendMsgtoService() {
         //发送给服务器title userID type content time adress
-        
+        Request<String> request = new StringRequest(DataNetHome.urlSendBottle, RequestMethod.GET);
+        request.add("上面的数据","上面的上古咀");
+        requestQueue.add(1,request,this);
 
 
     }
@@ -199,4 +219,24 @@ public class bottle_edit extends Fragment {
         //销毁漂流瓶的方法 与数据库一齐销毁
     }
 
+    //下面就是监听事件做出响应
+    @Override
+    public void onStart(int what) {
+
+    }
+
+    @Override
+    public void onSucceed(int what, Response<String> response) {
+
+    }
+
+    @Override
+    public void onFailed(int what, Response<String> response) {
+
+    }
+
+    @Override
+    public void onFinish(int what) {
+
+    }
 }

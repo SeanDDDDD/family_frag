@@ -1,4 +1,4 @@
-package com.example.sean_duan.family_frag;
+package com.example.sean_duan.family_frag.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+
+import com.example.sean_duan.family_frag.activity.MainActivity;
+import com.example.sean_duan.family_frag.R;
+import com.example.sean_duan.family_frag.note_edit;
 
 
 public class bottle_or_note extends Fragment {

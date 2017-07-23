@@ -1,4 +1,4 @@
-package com.example.sean_duan.family_frag;
+package com.example.sean_duan.family_frag.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.sean_duan.family_frag.Adapter.MyRecyclerAdapter;
+import com.example.sean_duan.family_frag.Bean.DataNetHome;
+import com.example.sean_duan.family_frag.Bean.MySerizal;
+import com.example.sean_duan.family_frag.activity.History_msg_Activity;
+import com.example.sean_duan.family_frag.JsonParse.JsonData;
+import com.example.sean_duan.family_frag.R;
+import com.example.sean_duan.family_frag.Bean.User_info;
 import com.yanzhenjie.nohttp.NoHttp;
 import com.yanzhenjie.nohttp.RequestMethod;
 import com.yanzhenjie.nohttp.rest.OnResponseListener;
@@ -117,6 +124,7 @@ public class Msg_note_fragment extends Fragment implements OnResponseListener<St
                     bunle.clear();
                 }else{
                     Toast.makeText(historyMsgActivity, "进去", Toast.LENGTH_SHORT).show();
+                    //传递进去一个帖子UserInfo对应的帖子ID 创建一个note edit碎片
                 }
             }
         });

@@ -1,17 +1,16 @@
-package com.example.sean_duan.family_frag;
+package com.example.sean_duan.family_frag.Adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.lzy.okhttputils.request.PostRequest;
+import com.example.sean_duan.family_frag.R;
+import com.example.sean_duan.family_frag.Bean.User_info;
 
 import java.util.List;
 

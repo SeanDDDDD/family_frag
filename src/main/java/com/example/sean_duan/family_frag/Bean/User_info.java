@@ -16,7 +16,8 @@ public class User_info {
     private String adress ;//地点
     private String longitude;//经度
     private String latitude;//维度
-
+    private String bottleID ;//bottleID
+    private String TieZiID;//帖子ID
     public String getInfoTitle() {
         return infoTitle;
     }

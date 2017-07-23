@@ -1,10 +1,8 @@
-package com.example.sean_duan.family_frag;
+package com.example.sean_duan.family_frag.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,9 +10,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.sean_duan.family_frag.Adapter.MyRecyclerAdapter;
+import com.example.sean_duan.family_frag.Bean.DataNetHome;
+import com.example.sean_duan.family_frag.Bean.MySerizal;
+import com.example.sean_duan.family_frag.activity.History_msg_Activity;
+import com.example.sean_duan.family_frag.JsonParse.JsonData;
+import com.example.sean_duan.family_frag.R;
+import com.example.sean_duan.family_frag.Bean.User_info;
 import com.yanzhenjie.nohttp.NoHttp;
 import com.yanzhenjie.nohttp.RequestMethod;
 import com.yanzhenjie.nohttp.rest.OnResponseListener;
@@ -23,6 +27,7 @@ import com.yanzhenjie.nohttp.rest.RequestQueue;
 import com.yanzhenjie.nohttp.rest.Response;
 import com.yanzhenjie.nohttp.rest.StringRequest;
 
+import java.lang.reflect.GenericArrayType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,6 +82,7 @@ public class Msg_bottle_fragment extends Fragment implements OnResponseListener<
                     bunle.clear();
                 }else{
                     Toast.makeText(historyMsgActivity, "进去", Toast.LENGTH_SHORT).show();
+                    //跳到getbottlefragment界面
                 }
             }
         });
