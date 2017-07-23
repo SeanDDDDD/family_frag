@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/history_msg"
+        android:icon="@drawable/history_msg"
+        android:title=""
+        android:checked="false"
+        />
+
+    <item
+        android:id="@+id/back_bottle"
+        android:icon="@drawable/bottle"
+        android:title=""
+        android:checked="true"
+        android:enabled="true"
+        />
+
+    <item
+        android:id="@+id/user_interface"
+        android:icon="@drawable/user_interface"
+        android:title="" />
+
+</menu>

@@ -1,0 +1,100 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sean_duan.family_frag.bottle_edit"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.example.sean_duan.family_frag.Top_Textview
+                android:id="@+id/editbottle_title"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="编辑漂流瓶"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:typeface="monospace" />
+
+            <Button
+                android:id="@+id/button_bottleback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:text="back" />
+        </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:background="@drawable/bottle_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="8"
+        android:orientation="vertical">
+
+        <!--android:entries=""-->
+        <com.example.sean_duan.family_frag.Type_bottle
+            android:entries="@array/bottle_style"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_gravity="center"
+            android:id="@+id/spinner_bottlestyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="20" />
+
+        <TextView
+            android:id="@+id/textView_bottle_send"
+            android:layout_gravity="center"
+            android:layout_width="250dp"
+            android:layout_height="400dp"
+            android:textSize="20dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editText_bottle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="text" />
+
+        <Spinner
+            android:id="@+id/spinner_image_bottle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3" />
+
+        <Button
+            android:id="@+id/button_bottle_send"
+            android:background="#00C5CD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:text="发送" />
+    </LinearLayout>
+</LinearLayout>

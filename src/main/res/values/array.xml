@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bottle_style">
+        <item>社团瓶</item>
+        <item>漂流瓶</item>
+        <item>求助瓶</item>
+        <item>交友瓶</item>
+    </string-array>
+</resources>
